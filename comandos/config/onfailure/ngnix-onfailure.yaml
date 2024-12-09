@@ -1,0 +1,21 @@
+apiVersion: v1
+# Especifica la version del la API kubernetes que estamos utilizando
+kind: Pod
+# Define el tipo de objeto que en este caso es un Pod
+metadata:
+  name: nginx-onfailure
+  labels:
+    name: myapp-onfailure
+spec:
+# Define las especificaciones del Pod
+  containers:
+  - name: ngnix-onfailure-container
+    image: nginx:latest
+    command: ["sh", "-c", "echo El pod fallido && exit 1"]
+    resources:
+      limits:
+        memory: "128Mi"
+        cpu: "500m"
+    ports:
+      - containerPort: 80
+  restartPolicy: OnFailure

@@ -1,0 +1,23 @@
+apiVersion: v1
+# Especifica la version del la API kubernetes que estamos utilizando
+kind: Pod
+# Define el tipo de objeto que en este caso es un Pod
+metadata:
+  name: nginx-prod
+  labels:
+    app: demo
+    environment: production
+    tier: web
+    version: v1
+spec:
+# Define las especificaciones del Pod
+  containers:
+  - name: ngnix-prod
+    image: nginx:latest
+    resources:
+      limits:
+        memory: "128Mi"
+        cpu: "500m"
+    ports:
+      - containerPort: 80
+  restartPolicy: Always

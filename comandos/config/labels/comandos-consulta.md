@@ -15,3 +15,9 @@ kubectl get pods --show-labels
 ```sh
 kubectl label pod nginx-server app=fullstack --overwrite
 ```
+
+## Comando para buscar un conjunto de labels con 'in'
+
+```sh
+kubectl get pods -l "environment in (production, development, stating)"
+```

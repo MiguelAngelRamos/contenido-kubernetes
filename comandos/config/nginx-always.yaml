@@ -1,0 +1,20 @@
+apiVersion: v1
+# Especifica la version del la API kubernetes que estamos utilizando
+kind: Pod
+# Define el tipo de objeto que en este caso es un Pod
+metadata:
+  name: nginx-always
+  labels:
+    name: myapp-always
+spec:
+# Define las especificaciones del Pod
+  containers:
+  - name: ngnix-always-container
+    image: nginx:latest
+    resources:
+      limits:
+        memory: "128Mi"
+        cpu: "500m"
+    ports:
+      - containerPort: 80
+  restartPolicy: Always

@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: PersistenVolume
+metadata:
+  name: mysql-pv
+  namespace: production
+spec:
+  capacity:
+    storage: 5Gi
+  accessModes:
+    - ReadWriteOnce
+  persitentVolumeReclaimPolicy: Retain
+  storageClassName: manual
+  hostPath:
+    path: /mnt/data/mysql

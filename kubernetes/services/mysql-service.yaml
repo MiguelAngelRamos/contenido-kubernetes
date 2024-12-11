@@ -1,13 +1,13 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: msyql-service
+  name: mysql-service
   namespace: production
-spec: 
+spec:
   selector:
     app: mysql
   ports:
     - protocol: TCP
       port: 3306
-      targertPort: 3306
-type: ClusterIP
+      targetPort: 3306
+  type: ClusterIP

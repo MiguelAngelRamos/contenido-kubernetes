@@ -1,34 +1,32 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: order-deployment
+  name: user-deployment
   namespace: production
 spec:
   replicas: 3
   selector:
     matchLabels:
-      app: order-service
+      app: user-service
   template:
     metadata:
       labels:
-        app: order-service
+        app: user-service
     spec:
       containers:
-      - name: order-service
-        image: mramoscli/order-service:latest  # Reemplaza "<tu_usuario_docker>" con tu usuario de Docker Hub
+      - name: user-service
+        image: mramoscli/user-service:latest  # Reemplaza "<tu_usuario_docker>" con tu usuario de Docker Hub
         ports:
-        - containerPort: 8081
+        - containerPort: 8080
         env:
         - name: SPRING_DATASOURCE_URL
-          value: jdbc:mysql://mysql-service:3306/orderdb
+          value: jdbc:mysql://mysql-service:3306/userdb
         - name: SPRING_DATASOURCE_USERNAME
           value: root
         - name: SPRING_DATASOURCE_PASSWORD
           value: academy
         - name: SPRING_JPA_HIBERNATE_DDL_AUTO
           value: update
-        - name: FEIGN_HYSTRIX_ENABLED
-          value: "true"
         resources:
           requests:
             memory: "256Mi"

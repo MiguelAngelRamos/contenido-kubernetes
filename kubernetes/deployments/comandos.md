@@ -23,3 +23,14 @@ mysql-65566ff468-qfb4t   1/1     Running   0          2m37s
 kubectl exec -it mysql-65566ff468-qfb4t -n production -- mysql -u root -p
 
 ```
+
+
+## Microservicios deploy
+
+```sh
+kubectl apply -f kubernetes/deployments/user-deployment.yaml
+```
+
+```sh
+kubectl apply -f kubernetes/deployments/order-deployment.yaml
+```

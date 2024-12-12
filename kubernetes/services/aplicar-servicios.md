@@ -17,3 +17,11 @@ kubectl apply -f user-service-nodeport.yaml
 ```sh
 kubectl apply -f order-service-nodeport.yaml
 ```
+
+
+```sh
+minikube addons enable ingress
+```
+```sh
+kubectl apply -f api-ingress.yaml
+``` 
